@@ -1,10 +1,10 @@
 package com.devcourse.abstract_factory;
 
-import com.devcourse.module.Nation;
-import com.devcourse.module.Order;
-import com.devcourse.module.factory.JapanMcDonaldFactory;
-import com.devcourse.module.factory.KoreanMcDonaldFactory;
-import com.devcourse.module.factory.McDonaldFactory;
+import com.devcourse.abstract_factory.module.Nation;
+import com.devcourse.abstract_factory.module.Order;
+import com.devcourse.abstract_factory.module.factory.JapanMcDonaldFactory;
+import com.devcourse.abstract_factory.module.factory.KoreanMcDonaldFactory;
+import com.devcourse.abstract_factory.module.factory.McDonaldFactory;
 
 import java.util.Optional;
 
