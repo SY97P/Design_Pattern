@@ -1,4 +1,4 @@
-package com.oop.abstract_factory.module.petties;
+package com.devcourse.abstract_factory.module.petties;
 
 public class SushiPetties implements Petties {
     @Override

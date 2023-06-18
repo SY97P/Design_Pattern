@@ -1,8 +1,8 @@
-package com.oop.abstract_factory.module;
+package com.devcourse.abstract_factory.module;
 
-import com.devcourse.module.bread.Bread;
-import com.devcourse.module.factory.McDonaldFactory;
-import com.devcourse.module.petties.Petties;
+import com.devcourse.abstract_factory.module.bread.Bread;
+import com.devcourse.abstract_factory.module.factory.McDonaldFactory;
+import com.devcourse.abstract_factory.module.petties.Petties;
 
 public class Order {
     private final Bread bread;

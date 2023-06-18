@@ -1,4 +1,4 @@
-package com.oop.abstract_factory.module.bread;
+package com.devcourse.abstract_factory.module.bread;
 
 public class RiceBread implements Bread {
     @Override

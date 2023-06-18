@@ -1,4 +1,4 @@
-package com.oop.abstract_factory;
+package com.devcourse.abstract_factory;
 
 import com.devcourse.module.Nation;
 import com.devcourse.module.Order;
