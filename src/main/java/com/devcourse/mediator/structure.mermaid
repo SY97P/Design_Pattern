@@ -1,0 +1,20 @@
+classDiagram
+
+    class Mediator {
+        <<interface>>
+    }
+    class RealMediator
+    Mediator <.. RealMediator
+
+    class Component {
+        <<interface>>
+    }
+    class RealComponent1
+    class RealComponent2
+    Component <.. RealComponent1
+    Component <.. RealComponent2
+
+    Mediator <-- Component
+    RealMediator --> RealComponent1
+    RealMediator --> RealComponent2
+

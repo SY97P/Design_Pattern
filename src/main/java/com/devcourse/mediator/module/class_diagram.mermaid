@@ -1,0 +1,24 @@
+classDiagram
+
+    class Client
+
+    class Mediator {
+        <<interface>>
+    }
+    class CommandCenter
+    Mediator <.. CommandCenter
+
+    class Unit {
+        <<interface>>
+    }
+    class Police
+    class FireFighter
+    Unit <.. Police
+    Unit <.. FireFighter
+
+    Mediator <-- Unit
+    CommandCenter --> Police
+    CommandCenter --> FireFighter
+
+    Client --> Mediator
+    Client --> Unit
