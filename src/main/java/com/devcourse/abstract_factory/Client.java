@@ -8,7 +8,7 @@ import com.devcourse.abstract_factory.module.factory.McDonaldFactory;
 
 public class Client {
     public static void main(String[] args) {
-        Order order = makeOrder(Nation.KR);
+        Order order = makeOrder(Nation.JP);
         order.cook();
     }
 
