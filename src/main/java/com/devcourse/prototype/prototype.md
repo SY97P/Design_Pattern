@@ -26,6 +26,148 @@
 - Client
     - 프로토타입 클래스 타입 객체 복사본 생성 가능
 
+# 📟 코드
+
+```java
+public class Client {
+
+    /** ProtoType 패턴
+     *
+     * 클래스에 의존하지 않고 기존 객체를 복사하는 생성패턴.
+     */
+    public static void main(String[] args) {
+        List<Shape> shapes = new ArrayList<>();
+        List<Shape> shapesCopy = new ArrayList<>();
+
+        Circle circle =  new Circle();
+        circle.x = 10;
+        circle.y = 20;
+        circle.radius = 15;
+        circle.color = "red";
+        shapes.add(circle);
+
+        Circle clonedCircle = (Circle) circle.clone();
+        shapes.add(clonedCircle);
+
+        Rectangle rectangle = new Rectangle();
+        rectangle.x = 10;
+        rectangle.y = 20;
+        rectangle.color = "blue";
+        shapes.add(rectangle);
+
+        cloneAndCompare(shapes, shapesCopy);
+    }
+
+    private static void cloneAndCompare(List<Shape> shapes, List<Shape> shapesCopy) {
+        for (Shape shape: shapes) {
+            shapesCopy.add(shape.clone());
+        }
+
+        for (int i = 0; i < shapes.size(); i++) {
+            if (shapes.get(i) != shapesCopy.get(i)) {
+                System.out.println(i + ": Shapes are different objects (yay!)");
+                if (shapes.get(i).equals(shapesCopy.get(i))) {
+                    System.out.println(i + ": And they are identical (yay!)");
+                } else {
+                    System.out.println(i + ": But they are not identical (booo!)");
+                }
+            } else {
+                System.out.println(i + ": Shape objects are the same (booo!)");
+            }
+        }
+    }
+}
+```
+
+```java
+public abstract class Shape {
+    public int x;
+    public int y;
+    public String color;
+
+    public Shape() {}
+
+    public Shape(Shape target) {
+        if (target != null) {
+            this.x = target.x;
+            this.y = target.y;
+            this.color = target.color;
+        }
+    }
+
+    public abstract Shape clone();
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof Shape)) {
+            return false;
+        }
+        Shape shape = (Shape) object;
+        return shape.x == x && shape.y == y && Objects.equals(shape.color, color);
+    }
+
+}
+```
+
+```java
+public class Rectangle extends Shape {
+
+    private int inch;
+
+    public Rectangle() {}
+
+    public Rectangle(Rectangle target) {
+        super(target);
+        if (target != null) {
+            this.inch = target.inch;
+        }
+    }
+
+    @Override
+    public Shape clone() {
+        return new Rectangle(this);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof Rectangle) || !super.equals(object)) return false;
+        Rectangle shape = (Rectangle) object;
+        return shape.inch == inch;
+    }
+
+}
+```
+
+```java
+public class Circle extends Shape {
+
+    public int radius;
+
+    public Circle() {}
+
+    public Circle(Circle target) {
+        super(target);
+        if (target != null) {
+            this.radius = target.radius;
+        }
+    }
+
+    @Override
+    public Shape clone() {
+        return new Circle(this);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof Circle) || !super.equals(object)) {
+            return false;
+        }
+        Circle shape = (Circle) object;
+        return shape.radius == this.radius;
+    }
+}
+```
+
 # 🔮 적용하면 좋을때
 
 - 한 객체에 대한 여러 복사본이 각자의 독립적인 로직을 갖고 싶을 때
