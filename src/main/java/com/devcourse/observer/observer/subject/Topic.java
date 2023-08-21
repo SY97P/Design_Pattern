@@ -2,7 +2,6 @@ package com.devcourse.observer.observer.subject;
 
 import com.devcourse.observer.observer.object.Observer;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
